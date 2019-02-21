@@ -31,7 +31,7 @@ You can also point driveanon at a folder blob id and get the list of blob ids fo
 ```python
 import driveanon as da
 folder_blob_id = '1mn2Q1Gm0WEI51G_1A6SNsDJqV7jWVC-f'
-files = driveanon.list_blobs('folder_blob_id',
+blob_id_list = da.list_blobs('folder_blob_id',
                              '.extension',
                             )
 ```
