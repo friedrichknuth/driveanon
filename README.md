@@ -27,9 +27,13 @@ da.save(blob_id)
 `driveanon.save(blob_id, filename=None, overwrite=False)` saves a file to the local disk. If no filename is passed, the file will be named as it is named on Google Drive.
 
 ## Getting Blob Ids
-One way to get a list of blob ids using authentication is with [rclone](https://rclone.org). See the rclone docs on how to install and configure this tool. To get a list of files and blob ids from a remote, use:
-```
-rclone lsf --format pi --csv remote:path
+You can also point driveanon at a folder blob id and get the list of blob ids for all tiles in the folder matching the specified extention. Again, make sure the folder permission are set to "Anyone with the link" or "Public on the web".
+```python
+import driveanon as da
+folder_blob_id = 1mn2Q1Gm0WEI51G_1A6SNsDJqV7jWVC-f
+files = driveanon.list_blobs('folder_blob_id',
+                             '.extension',
+                            )
 ```
 We are currently working on ways to get a list of blob ids without authentication.
 
