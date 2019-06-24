@@ -25,6 +25,7 @@ setup(
     long_description='README.md',
     install_requires=[
         'requests',
+        'bs4',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
