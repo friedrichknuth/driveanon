@@ -72,7 +72,6 @@ def find_content_block(html_response, extension):
         if '_DRIVE_ivd' in str(element.contents):
             if extension in str(element.contents):
                 content_block.append(element)
-    print(content_block)
     return content_block
 
 def extract_file_indices(content_block, extension):
