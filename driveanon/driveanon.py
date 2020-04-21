@@ -69,8 +69,9 @@ def request_folder_blob(folder_blob_id):
 def find_content_block(html_response, extension):
     content_block = []
     for element in html_response.find_all('script'):
-        if extension in element.text:
-            content_block.append(element)
+        if '_DRIVE_ivd' in element.text:
+            if extension in element.text:
+                content_block.append(element)
     return content_block
 
 def extract_file_indices(content_block, extension):
@@ -96,4 +97,4 @@ def list_blobs(folder_blob_id,extension):
     content_block = find_content_block(html_response, extension)
     file_indices, all_elements = extract_file_indices(content_block, extension)
     file_names, file_blob_ids = get_file_blobs(all_elements, file_indices)
-    return file_blob_ids
+    return file_names, file_blob_ids
